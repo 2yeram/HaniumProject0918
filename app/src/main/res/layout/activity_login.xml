@@ -6,18 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/user_resize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/login_id"
+        android:layout_marginBottom="30dp"/>
+
     <EditText
         android:id="@+id/login_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="312dp"
+        android:layout_marginTop="280dp"
         android:ems="10"
         android:hint="아이디"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/godom"/>
 
     <EditText
         android:id="@+id/login_pw"
@@ -30,28 +40,40 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_id" />
+        app:layout_constraintTop_toBottomOf="@+id/login_id"
+        android:fontFamily="@font/godom"
+        />
 
     <Button
         android:id="@+id/login_login"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="18dp"
         android:text="로그인"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_pw" />
+        app:layout_constraintTop_toBottomOf="@+id/login_pw"
+        android:background="@drawable/button_pattern_home_orange"
+        android:fontFamily="@font/godob"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        />
 
     <Button
         android:id="@+id/login_register"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
         android:text="회원가입"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_pw" />
+        app:layout_constraintTop_toBottomOf="@+id/login_pw"
+        android:background="@drawable/button_pattern_home"
+        android:fontFamily="@font/godob"
+        android:textStyle="bold"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
