@@ -58,6 +58,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/webView" />
 
+    <Button
+        android:id="@+id/bt_capture"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_pattern_home"
+        android:drawableTop="@drawable/camera_resize"
+        android:fontFamily="@font/godom"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="화면 캡쳐"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/bt_turn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/webView" />
 
 
 
