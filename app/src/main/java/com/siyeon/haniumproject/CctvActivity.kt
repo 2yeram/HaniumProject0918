@@ -5,6 +5,7 @@ import android.content.ContentValues
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.media.MediaScannerConnection
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
@@ -17,8 +18,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class CctvActivity : AppCompatActivity() {
 
@@ -108,8 +113,10 @@ class CctvActivity : AppCompatActivity() {
         val canvas = Canvas(bitmap)
         webView.draw(canvas)
 
-        // Save the captured Bitmap to the device's external storage
-        val filename = "webview_capture.png"
+        val currentDateTime = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+        val filename = "webview_capture_$currentDateTime.png"
+
+        // 외부 저장소 경로
         val folderPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath
         val filePath = "$folderPath/$filename"
 
@@ -119,17 +126,17 @@ class CctvActivity : AppCompatActivity() {
             outputStream.flush()
             outputStream.close()
 
-            // Add the image to the device's MediaStore (to make it appear in the gallery)
-            val values = ContentValues().apply {
-                put(MediaStore.Images.Media.TITLE, filename)
-                put(MediaStore.Images.Media.DESCRIPTION, "WebView Capture")
-                put(MediaStore.Images.Media.DATE_ADDED, System.currentTimeMillis())
-                put(MediaStore.Images.Media.MIME_TYPE, "image/png")
-                put(MediaStore.Images.Media.DATA, filePath)
+            // 미디어 스토어에 이미지를 추가합니다.
+            val contentResolver = applicationContext.contentResolver
+            MediaScannerConnection.scanFile(
+                applicationContext,
+                arrayOf(filePath),
+                null
+            ) { _, _ ->
+                // 스캔이 완료되었을 때 수행할 작업 (여기서는 아무 작업도 하지 않음)
             }
 
-            contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
-
+            // 미디어 스토어에 이미지를 추가한 후 갤러리 앱에서 볼 수 있게 됩니다.
             Toast.makeText(this, "캡쳐가 저장되었습니다: $filePath", Toast.LENGTH_LONG).show()
         } catch (e: Exception) {
             e.printStackTrace()
