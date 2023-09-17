@@ -7,26 +7,6 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/bt_place_name"
-        android:layout_width="0dp"
-        android:layout_height="75dp"
-        android:background="@color/orange"
-        android:drawableStart="@drawable/gps_resize"
-        android:drawableEnd="@drawable/down_arrow_resize"
-        android:fontFamily="@font/godom"
-        android:gravity="center_vertical"
-        android:text="@string/place_name_test"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:paddingLeft="12dp"
-        android:paddingRight="15dp"
-        android:drawablePadding="13dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/bt_home_alarm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -109,5 +89,24 @@
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/bt_home_facility" />
 
+    <Button
+        android:id="@+id/bt_place_name"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        android:background="@color/orange"
+        android:drawableStart="@drawable/gps_resize"
+        android:drawableEnd="@drawable/down_arrow_resize"
+        android:fontFamily="@font/godom"
+        android:gravity="center_vertical"
+        android:text="@string/place_name_test"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:paddingLeft="12dp"
+        android:paddingRight="15dp"
+        android:drawablePadding="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
