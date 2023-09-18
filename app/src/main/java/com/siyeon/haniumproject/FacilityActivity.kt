@@ -31,7 +31,7 @@ class FacilityActivity : AppCompatActivity() {
         imageView = findViewById(R.id.test) // 이미지뷰
 
         // Firebase Realtime Database의 데이터를 가져올 레퍼런스 설정 (test/push 노드)
-        databaseReference = FirebaseDatabase.getInstance().getReference("test/push")
+        databaseReference = FirebaseDatabase.getInstance().getReference("test2/dan")
 
         // ValueEventListener를 사용하여 데이터 가져오기 (test/push 노드)
         databaseReference.addValueEventListener(object : ValueEventListener {
