@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.siyeon.haniumproject.databinding.ActivityRegisterBinding // View Binding import 추가
 
-
 class Register : AppCompatActivity() {
     private val TAG: String = "Register"
     private lateinit var binding: ActivityRegisterBinding // View Binding 변수 추가
@@ -30,17 +29,26 @@ class Register : AppCompatActivity() {
             val registerpw = binding.registerPw.text.toString()
             val pwRe = binding.registerPwRe.text.toString()
 
-            // 유저가 항목을 다 채우지 않았을 경우
-            if(registerid.isEmpty() || registerpw.isEmpty() || pwRe.isEmpty()){
-                isExistBlank = true
+            // 입력 상자 초기화
+            binding.registerId.text.clear()
+            binding.registerPw.text.clear()
+            binding.registerPwRe.text.clear()
+
+            // 비밀번호와 비밀번호 확인이 다른 경우, isPWSame 초기화
+            if (registerpw != pwRe) {
+                isPWSame = false
             }
-            else{
-                if(registerpw == pwRe){
+
+            // 유저가 항목을 다 채우지 않았을 경우
+            if (registerid.isEmpty() || registerpw.isEmpty() || pwRe.isEmpty()) {
+                isExistBlank = true
+            } else {
+                if (registerpw == pwRe) {
                     isPWSame = true
                 }
             }
 
-            if(!isExistBlank && isPWSame){
+            if (!isExistBlank && isPWSame) {
 
                 // 유저가 입력한 id, pw를 쉐어드에 저장한다.
                 val sharedPreference = getSharedPreferences("file name", Context.MODE_PRIVATE)
@@ -57,19 +65,17 @@ class Register : AppCompatActivity() {
                 startActivity(intent)
                 finish() // 현재 액티비티 종료. 이번에 추가함.
 
-            }
-            else{
+            } else {
 
                 // 상태에 따라 다른 다이얼로그 띄워주기
-                if(isExistBlank){   // 작성 안한 항목이 있을 경우
+                if (isExistBlank) {   // 작성 안한 항목이 있을 경우
                     dialog("blank")
-                }
-                else if(!isPWSame){ // 입력한 비밀번호가 다를 경우
+                } else if (!isPWSame) { // 입력한 비밀번호가 다를 경우
                     dialog("not same")
                 }
             }
-
         }
+
     }
 
     // 회원가입 실패시 다이얼로그를 띄워주는 메소드
@@ -99,8 +105,4 @@ class Register : AppCompatActivity() {
         dialog.setPositiveButton("확인",dialog_listener)
         dialog.show()
     }
-
-
-
-
 }
