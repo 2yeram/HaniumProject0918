@@ -87,7 +87,7 @@ class CctvActivity : AppCompatActivity() {
         buttonTurn.setOnClickListener {
             // Toggle between InitialUrl and newUrl
             if (isInitialUrl) {
-                loadNewUrl("http://165.229.112.215:8081")
+                loadNewUrl("https://youtu.be/QW7EClanDmA?si=U8gYtOL28-U-oB1B") //두 번째 영상 링크
             } else {
                 loadInitialUrl()
             }
@@ -101,12 +101,8 @@ class CctvActivity : AppCompatActivity() {
         }
 
         startRecordingButton = findViewById<Button>(R.id.bt_record)
-        stopRecordingButton = findViewById<Button>(R.id.bt_stop_record)
 
         startRecordingButton.setOnClickListener { startRecording() }
-        stopRecordingButton.setOnClickListener { stopRecording() }
-
-        stopRecordingButton.isEnabled = false
 
         if (checkPermissions()) {
             initializeMediaRecorder()
@@ -217,7 +213,7 @@ class CctvActivity : AppCompatActivity() {
 
     private fun loadInitialUrl() {
         // Load the Initial URL
-        webView.loadUrl("https://www.youtube.com/watch?v=6Dbq05hchX4")
+        webView.loadUrl("https://www.youtube.com/watch?v=6Dbq05hchX4") //첫 번째 영상 링크
     }
 
     private fun loadNewUrl(url: String) {

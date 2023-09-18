@@ -12,7 +12,6 @@ import com.siyeon.haniumproject.databinding.ActivityRegisterBinding // View Bind
 
 
 class Register : AppCompatActivity() {
-
     private val TAG: String = "Register"
     private lateinit var binding: ActivityRegisterBinding // View Binding 변수 추가
     private var isExistBlank = false
@@ -56,6 +55,7 @@ class Register : AppCompatActivity() {
                 // 로그인 화면으로 이동
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
+                finish() // 현재 액티비티 종료. 이번에 추가함.
 
             }
             else{
