@@ -37,16 +37,12 @@ class Register : AppCompatActivity() {
             // 비밀번호와 비밀번호 확인이 다른 경우, isPWSame 초기화
             if (registerpw != pwRe) {
                 isPWSame = false
+            } else {
+                isPWSame = true
             }
 
-            // 유저가 항목을 다 채우지 않았을 경우
-            if (registerid.isEmpty() || registerpw.isEmpty() || pwRe.isEmpty()) {
-                isExistBlank = true
-            } else {
-                if (registerpw == pwRe) {
-                    isPWSame = true
-                }
-            }
+            // 입력란이 비어 있는지 확인하고 isExistBlank 설정
+            isExistBlank = registerid.isEmpty() || registerpw.isEmpty() || pwRe.isEmpty()
 
             if (!isExistBlank && isPWSame) {
 
@@ -75,6 +71,7 @@ class Register : AppCompatActivity() {
                 }
             }
         }
+
 
     }
 
