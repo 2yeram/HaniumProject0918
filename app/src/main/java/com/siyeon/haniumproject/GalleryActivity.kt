@@ -48,9 +48,7 @@ class GalleryActivity : AppCompatActivity() {
         }
         else {
             // 권한이 이미 허용됨
-
             getAllPhotos()
-
         }
     }
 
@@ -68,11 +66,9 @@ class GalleryActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(this, "권한 거부 됨", Toast.LENGTH_SHORT).show()
                 }
-
                 return
             }
         }
-
     }
 
     private fun getAllPhotos(){
@@ -95,10 +91,7 @@ class GalleryActivity : AppCompatActivity() {
         }
         val adapter = MyAdapter(this,uriArr)
         val gridView = findViewById<GridView>(R.id.your_gallery_grid)
-
         gridView.numColumns=3 // 한 줄에 3개씩
         gridView.adapter = adapter
-
     }
 }
-

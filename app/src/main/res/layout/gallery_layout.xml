@@ -29,6 +29,8 @@
         android:background="@android:color/transparent"
         android:gravity="left"
         android:src="@drawable/arrow_orange_resize"
+        android:contentDescription="뒤로 가기"
+        android:importantForAccessibility="yes"
         tools:ignore="MissingConstraints,RtlHardcoded" />
 
     <GridView
