@@ -80,14 +80,8 @@
         <activity
             android:name=".FacilityActivity"
             android:label="시설물 현황" />
-
-        <service
-            android:name=".FirebaseMessagingService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
+        <activity android:name=".PhotoDetailActivity"
+            android:label="갤러리 사진 확대"/>
 
         <service
             android:name=".ScreenCaptureService"

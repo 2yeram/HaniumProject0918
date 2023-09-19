@@ -1,6 +1,7 @@
 package com.siyeon.haniumproject
 
 import android.content.Context
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
@@ -25,17 +26,22 @@ class MyAdapter(val context: Context, uriArr:ArrayList<String>) : BaseAdapter(){
         return position.toLong()
     }
 
-    override fun getView(p: Int, convertView: View?, parent: ViewGroup?): View {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val imageView = ImageView(context)
-        val display = context.resources.displayMetrics // getResources() 대신 resources 사용
+        val display = context.resources.displayMetrics
         imageView.scaleType = ImageView.ScaleType.CENTER_CROP
         val layoutParams = LinearLayout.LayoutParams(display.widthPixels / 3, display.widthPixels / 3)
-        imageView.layoutParams = layoutParams // 레이아웃 파라미터에 설정
-        imageView.setPadding(2, 2, 2, 2) // 패딩 설정
-        Glide.with(context).load(items[p]).into(imageView)
+        imageView.layoutParams = layoutParams
+        imageView.setPadding(2, 2, 2, 2)
+        Glide.with(context).load(items[position]).into(imageView)
+
+        // 이미지 클릭 이벤트 처리
+        imageView.setOnClickListener {
+            val intent = Intent(context, PhotoDetailActivity::class.java)
+            intent.putExtra("imageUri", items[position])
+            context.startActivity(intent)
+        }
+
         return imageView
-
     }
-
-
 }
